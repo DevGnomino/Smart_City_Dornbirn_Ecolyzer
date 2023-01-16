@@ -3,4 +3,9 @@ https://www.analyticsvidhya.com/blog/2022/04/object-detection-using-haar-cascade
 https://www.openstreetmap.org/copyright
 https://www.analyticsvidhya.com/blog/2021/12/vehicle-detection-and-counting-system-using-opencv/
 https://htldornbirn-my.sharepoint.com/:x:/g/personal/damiano_pezze_student_htldornbirn_at/ERaaQKxDRp1GsFrBQnyAsUQBA5P5EvzWWSpDOkJgmXxhEQ?e=49fAh0
+<<<<<<< HEAD
 https://github.com/opencv/opencv/tree/master/data/haarcascades
+=======
+https://www.twine.net/blog/vehicle-detection-datasets/
+http://ai.stanford.edu/~jkrause/cars/car_dataset.html
+>>>>>>> 6fe9de2655aca3c9219ff69cb15f1546a6e1e849

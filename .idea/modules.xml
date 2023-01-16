@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Smart_City_Dornbirn_Ecolyzer.iml" filepath="$PROJECT_DIR$/.idea/Smart_City_Dornbirn_Ecolyzer.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Smart_City_Ecolyzer.iml" filepath="$PROJECT_DIR$/.idea/Smart_City_Ecolyzer.iml" />
+
     </modules>
   </component>
 </project>

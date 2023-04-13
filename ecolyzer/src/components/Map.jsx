@@ -1,7 +1,7 @@
 import React from 'react'
-import { MapContainer } from 'https://cdn.esm.sh/react-leaflet/MapContainer';
-import { TileLayer } from 'https://cdn.esm.sh/react-leaflet/TileLayer';
-import { useMap } from 'https://cdn.esm.sh/react-leaflet/hooks';
+//import { MapContainer } from 'https://cdn.esm.sh/react-leaflet/MapContainer';
+//import { TileLayer } from 'https://cdn.esm.sh/react-leaflet/TileLayer';
+//import { useMap } from 'https://cdn.esm.sh/react-leaflet/hooks';
 
 export default function Map() {
   /*return (    
@@ -19,5 +19,7 @@ export default function Map() {
         </MapContainer>
   </div>
   )*/
-  return;
+  return (
+    <p>Hollo Map!</p>
+  )
 }

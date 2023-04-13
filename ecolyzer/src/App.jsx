@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import SlideOver from './components/SlideOver';
+import Map from './components/Map';
 
 function App() {
   return (

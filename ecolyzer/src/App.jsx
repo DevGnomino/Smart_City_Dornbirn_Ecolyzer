@@ -1,11 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import SlideOver from './components/SlideOver';
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
+    <div className="w- shadow-md rounded-full">
+    <h1 className="text-3xl font-mono center">
       Hello world!
-    </h1>  
+    </h1>
+      <SlideOver/>
+    </div>  
+
     );
 }
 

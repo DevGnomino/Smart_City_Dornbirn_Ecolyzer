@@ -1,17 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import SlideOver from './components/SlideOver';
 import Map from './components/Map';
 
 function App() {
   return (
-    <div>
-      <div>
-        <h1 class="text-3xl font-bold underline">
-          Hello world!
-        </h1>  
-      </div>
-      <Map></Map>
-    </div>
+    <div className="w- shadow-md rounded-full">
+    <h1 className="text-3xl font-mono center">
+      Hello world!
+    </h1>
+      <SlideOver/>
+    </div>  
+
     );
 }
 

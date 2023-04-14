@@ -18,7 +18,7 @@ export default function Map() {
 
 
   return (
-    <MapContainer center={mapPosition} zoom={14} scrollWheelZoom={true} style={{ height: '100vh', width: '100wh' }}>
+    <MapContainer center={mapPosition} zoom={14} zoomControl={false} scrollWheelZoom={true} style={{ height: '100vh', width: '100wh' }}>
         <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

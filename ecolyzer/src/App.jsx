@@ -4,14 +4,13 @@ import Map from './components/Map';
 
 function App() {
   return (
-    <div className="">
-      <div className="h-10 w-screen flex justify-center items-center border-solid border-black border-4 box-border">
+    <div className="h-screen w-screen box-border">
+      <div className="w-screen h-1/6 flex justify-center items-center border-solid border-black border-4 box-border">
         <div className="text-4xl font-bold p-2">ECOLYZER</div>
       </div>
-      <div className="h-85 w-screen-6 m-3 flex border-solid rounded-lg border-black border-4 box-border">
-        <div className="h-full w-2/3 bg-slate-400"><Map/></div>
-        <div className="h-full w-1/3 bg-slate-800"><SlideOver/></div>
-        
+      <div className="w-screen h-5/6 flex p-5 overflow-hidden">
+        <div className="w-full h-auto overflow-hidden border-solid border-4 border-black rounded-2xl bg-blue box-border"><Map/></div>
+        <div className="bg-slate-800 box-border"><SlideOver/></div>
       </div>
     </div>
   );

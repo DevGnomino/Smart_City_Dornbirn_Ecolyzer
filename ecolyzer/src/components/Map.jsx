@@ -18,7 +18,7 @@ export default function Map() {
 
 
     return (
-        <div className="w-screen h-5/6 flex p-5 pt-0 overflow-hidden">
+        <div className="w-screen h-5/6 flex mt-32 p-5 pt-0 text-green-800 overflow-hidden fixed">
             <div className="w-full h-auto overflow-hidden border-solid border-4 border-green-800 rounded-2xl bg-blue box-border">
                 <MapContainer center={mapPosition} zoom={14} zoomControl={false} scrollWheelZoom={true} style={{ height: '100vh', width: '100wh' }}>
                     <TileLayer

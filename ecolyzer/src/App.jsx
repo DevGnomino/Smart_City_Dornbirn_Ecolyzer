@@ -13,12 +13,12 @@ function App() {
     case '/about':
       Component = About;
       break;
-    default: Component = App;
+    default: Component = Map;
       break;
   }
 
   return (
-    <div className="h-screen w-screen box-border text-green-800 leading-none select-none">
+    <div className="h-screen w-screen leading-none select-none">
       <NavBar/>
       <Component/>
     </div>

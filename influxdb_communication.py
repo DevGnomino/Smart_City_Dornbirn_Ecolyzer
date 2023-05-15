@@ -18,11 +18,14 @@ def openInfluxConnection():
    global write_api
    write_api = client.write_api(write_options=SYNCHRONOUS)
 
-def sendDataToInflux(latLong, nCars, nBusses, nBikes):
-   print(latLong, nCars, nBusses, nBikes)
-   allPoints = list()
-   allPoints.append(influxdb_client.Point("my_measurement").tag("location", latLong).field("cars", nCars))
-   allPoints.append(influxdb_client.Point("my_measurement").tag("location", latLong).field("busses", nBusses))
-   allPoints.append(influxdb_client.Point("my_measurement").tag("location", latLong).field("bike", nBikes))
+def sendDataToInflux(latLong, nCars, nBusses, nTwoWheelers):
+   print(latLong, nCars, nBusses, nTwoWheelers)
+   """allPoints = list()
+   allPoints.append(influxdb_client.Point("vehicles").tag("location", latLong).field("cars", nCars))
+   allPoints.append(influxdb_client.Point("vehicles").tag("location", latLong).field("busses", nBusses))
+   allPoints.append(influxdb_client.Point("vehicles").tag("location", latLong).field("bike", nBikes))
    for point in allPoints:
-      write_api.write(bucket=bucket, org=org, record=point)
+      write_api.write(bucket=bucket, org=org, record=point)"""
+   
+   point = influxdb_client.Point("vehicles").tag("location", latLong).field("cars", nCars).field("busses", nBusses).field("twoWheelers", nTwoWheelers)
+   write_api.write(bucket=bucket, org=org, record=point)

@@ -15,11 +15,12 @@ client = influxdb_client.InfluxDBClient(
 
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
-currTime = datetime.now()
+#currTime = datetime.now()
 
+latLon = "47.502069,9.747105"
 allPoints = list()
-allPoints.append(influxdb_client.Point("my_measurement").tag("location", "Dornbirn Center").field("cars", 11))
-allPoints.append(influxdb_client.Point("my_measurement").tag("location", "Dornbirn Center").field("busses", 3))
-allPoints.append(influxdb_client.Point("my_measurement").tag("location", "Dornbirn Center").field("bike", 2))
+allPoints.append(influxdb_client.Point("my_measurement").tag("location", latLon).field("cars", 11))
+allPoints.append(influxdb_client.Point("my_measurement").tag("location", latLon).field("busses", 3))
+allPoints.append(influxdb_client.Point("my_measurement").tag("location", latLon).field("bike", 2))
 for point in allPoints:
     write_api.write(bucket=bucket, org=org, record=point)

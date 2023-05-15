@@ -18,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen w-screen leading-none select-none">
+    <div className="h-screen w-screen leading-none select-none z-10">
       <NavBar/>
       <Component/>
     </div>

@@ -2,10 +2,12 @@ import React from 'react'
 
 export default function About() {
     return (
-        <div className="w-screen mt-32 p-5 pb-4 pt-0 relative">
-            <h2 className="font-bold text-xl text-green-800">About us</h2>
-            <br />
-            <div className="border-t-4 border-green-800 pt-2">
+        <div className="w-screen mt-32 pb-4 pt-0">
+            <div className="bg-gradient-to-b from-white from-50% to-transparent to-100% px-5 h-16 w-full fixed z-10">
+                <h2 className="font-bold w-fit text-xl text-green-800 border-b-4 border-green-800">About us</h2>
+                <br />
+            </div>
+            <div className="px-5 relative top-12 z-0">
                 <p>Ecolyzer is a new way to visualize the impact of climate change on the world.
                     We use data from the NASA Earth Observations API to show the impact of climate change on the world.
                     We hope that this will help people understand the impact of climate change on the world.</p>

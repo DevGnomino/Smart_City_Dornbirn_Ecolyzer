@@ -1,21 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import icon from './../icons/marker.png';
+import red from './../icons/red.png';
+import dark_orange from './../icons/dark_orange.png';
+import light_orange from './../icons/light_orange.png';
+import yellow from './../icons/yellow.png';
+import green from './../icons/green.png';
+import yellow_green from './../icons/yellow_green.png';
 
 
-export default function Map() {
+export default function MapComponent() {
+    const [icon, setIcon] = useState(red);
 
-    const mapPosition = [47.4167, 9.75];
+    const mapPosition = [47.421169, 9.747031];
+
 
     const DefaultIcon = L.icon({
         iconUrl: icon,
-        iconSize: [50, 50],
-        iconAnchor: [10, 41],
-        popupAnchor: [2, -40]
+        iconSize: [90, 90],
+        iconAnchor: [45, 45],
+        popupAnchor: [0, 0]
     });
-
 
     return (
         <div className="w-screen h-5/6 flex mt-32 p-5 pt-0 text-green-800 overflow-hidden fixed">
@@ -35,6 +41,6 @@ export default function Map() {
                 </MapContainer>
             </div>
         </div>
-
     );
+    
 }

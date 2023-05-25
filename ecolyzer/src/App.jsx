@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.css';
-import Map from './components/Map';
+import MapComponent from './components/MapComponent';
 import NavBar from './components/NavBar';
 import About from './components/About';
 
@@ -8,12 +8,12 @@ function App() {
   let Component;
   switch (window.location.pathname) {
     case '/map':
-      Component = Map;
+      Component = MapComponent;
       break;
     case '/about':
       Component = About;
       break;
-    default: Component = Map;
+    default: Component = MapComponent;
       break;
   }
 

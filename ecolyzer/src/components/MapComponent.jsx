@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -8,6 +8,7 @@ import light_orange from './../icons/light_orange.png';
 import yellow from './../icons/yellow.png';
 import green from './../icons/green.png';
 import yellow_green from './../icons/yellow_green.png';
+import GetInfluxData from './../InfluxTest';
 
 
 export default function MapComponent() {
@@ -15,6 +16,9 @@ export default function MapComponent() {
 
     const mapPosition = [47.421169, 9.747031];
 
+    useEffect(() => {    // Update the document title using the browser API    
+        GetInfluxData();  
+    }); 
 
     const DefaultIcon = L.icon({
         iconUrl: icon,

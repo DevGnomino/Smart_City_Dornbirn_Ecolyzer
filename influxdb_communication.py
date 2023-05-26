@@ -1,11 +1,12 @@
 from datetime import datetime
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
+from sshtunnel import open_tunnel
 
 bucket = "ecolyzer"
 org = "htldor"
 token = "W5W6CaN_pYQg9BOEMJRQRYwV17fzJo-vUaJDhBZ20o_cmlr0Xeo5RjvrTZpOHpmyY9D8ayqO-sF3nBpiR6Fh9A=="
-url="http://10.115.3.38:8086"
+url="http://localhost:8086" #oder 10.115.3.38:8086
 
 def openInfluxConnection():
    global client 

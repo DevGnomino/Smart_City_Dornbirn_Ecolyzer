@@ -5,13 +5,13 @@ const org = "htldor";
 const token = "8fkPIHpovQtjqafqg8HBadj5nA3_JTFg80vQ3UYMuxcH9BtS52OgIVvAGc68w1CjtDU8avJ8oWTPe8MRtlmgow==";
 //Token 1:  8fkPIHpovQtjqafqg8HBadj5nA3_JTFg80vQ3UYMuxcH9BtS52OgIVvAGc68w1CjtDU8avJ8oWTPe8MRtlmgow==
 //Token 2:  W5W6CaN_pYQg9BOEMJRQRYwV17fzJo-vUaJDhBZ20o_cmlr0Xeo5RjvrTZpOHpmyY9D8ayqO-sF3nBpiR6Fh9A==
-const url = "http://localhost:8086"; 
+const url = "http://10.115.3.38:8086"; 
     //Von zu Hause mit Tunnel: http://localhost:8086
     //In der Schule: http://10.115.3.38:8086/ 
 
 const query = 'from(bucket: "' + bucket + '") |> range(start: -30d)';
 
-export default async function GetInfluxData() {
+export default async function GetInfluxData(setVehicleData) {
     console.log("Get Data Function called!");
     try {
         const queryApi = new InfluxDB({url: url, token: token}).getQueryApi(org);
@@ -54,7 +54,8 @@ export default async function GetInfluxData() {
         console.log(valueArray[1]);
         console.log(valueArray[2]);
 
-        return {car: valueArray[0], bus: valueArray[1], bike: valueArray[2], location: valueArray[0].location};        
+        setVehicleData({car: valueArray[0], bus: valueArray[1], bike: valueArray[2], location: valueArray[0].location});
+        //return {car: valueArray[0], bus: valueArray[1], bike: valueArray[2], location: valueArray[0].location};        
     }
     catch(ex) {
         console.log("Fetch error: " + ex);

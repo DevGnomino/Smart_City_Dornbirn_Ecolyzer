@@ -13,12 +13,13 @@ import GetInfluxData from './../InfluxTest';
 
 export default function MapComponent() {
     const [icon, setIcon] = useState(red);
+    const [vehicleData, setVehicleData] = useState("Vehicle data not defined");
 
     const mapPosition = [47.421169, 9.747031];
 
     useEffect(() => {    // Update the document title using the browser API    
-        GetInfluxData();  
-    }); 
+        GetInfluxData(setVehicleData);  
+    }, []); 
 
     const DefaultIcon = L.icon({
         iconUrl: icon,
@@ -26,6 +27,8 @@ export default function MapComponent() {
         iconAnchor: [45, 45],
         popupAnchor: [0, 0]
     });
+
+    console.log(vehicleData);
 
     return (
         <div className="w-screen h-5/6 flex mt-32 p-5 pt-0 text-green-800 overflow-hidden fixed">

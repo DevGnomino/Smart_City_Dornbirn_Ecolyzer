@@ -34,7 +34,7 @@ def preprocessImage():
     gray = cv2.cvtColor(img_arr, cv2.COLOR_BGR2GRAY)
 
     #add gaussian blur for better output
-    blur = cv2.GaussianBlur(grey,(5,5),0)
+    blur = cv2.GaussianBlur(gray,(5,5),0)
     Image.fromarray(blur)
 
     #dilation to fill missing parts of images whenever needed

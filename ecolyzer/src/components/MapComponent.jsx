@@ -8,7 +8,7 @@ import light_orange from './../icons/light_orange.png';
 import yellow from './../icons/yellow.png';
 import green from './../icons/green.png';
 import yellow_green from './../icons/yellow_green.png';
-import InfluxMarker from './../InfluxTest';
+import InfluxMarker from '../database/InfluxDBConnect';
 
 
 export default function MapComponent() {

@@ -40,10 +40,10 @@ export default function InfluxMarker(props) {
                         let long = values[10].replace('"', '');
                         let emission = 0;
                         if (values[7] == 'cars') {
-                            emission = 209.1 * values[6]; //(170 * 0.53 + 161 * 0.4)
+                            emission = Math.round(209.1 * values[6]); //(170 * 0.53 + 161 * 0.4)
                         }
                         else if (values[7] == 'busses') {
-                            emission = 14.5 * values[6]; 
+                            emission = Math.round(14.5 * values[6]); 
                         }
                         if(values[7]=='cars' || values[7]=='busses' || values[7]=='twoWheelers')
                             valueArray.push({location: [lat,long], name: values[7], count: Math.round(values[6]), emission: emission});

@@ -10,8 +10,26 @@ import green from './../icons/green.png';
 import yellow_green from './../icons/yellow_green.png';
 
 
-export default function MapComponent() {
-    const [icon, setIcon] = useState(red);
+export default function MapComponent(){
+    const [icon, setIcon] = useState(green);
+
+    const IconChange = (intensity) => {
+        if(0<=intensity && intensity<0.15)
+        {
+            setIcon(green);
+        }else if(0.15<=intensity && intensity<0.3){
+            setIcon(yellow_green);
+        }else if(0.3<=intensity && intensity<0.45){
+            setIcon(yellow);
+        }else if(0.45<=intensity && intensity<0.6){
+            setIcon(light_orange);
+        }else if(0.6<=intensity && intensity<0.8){
+            setIcon(dark_orange);
+        }else if(0.8<=intensity && intensity<=1){
+            setIcon(red);
+        }  
+    }
+
 
     const mapPosition = [47.421169, 9.747031];
 

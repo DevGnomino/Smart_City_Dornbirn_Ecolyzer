@@ -38,36 +38,24 @@ export default function InfluxMarker(props) {
                         //valueArray.push({time: values[5], location: values[9], name: values[7], count: values[6]});
                         let lat = values[9].replace('"', '');
                         let long = values[10].replace('"', '');
-                        valueArray.push({time: values[5], location: [lat,long], name: values[7], count: values[6]});
+                        let emission = 0;
+                        if (values[7] == 'cars') {
+                            emission = 209.1 * values[6]; //(170 * 0.53 + 161 * 0.4)
+                        }
+                        else if (values[7] == 'busses') {
+                            emission = 14.5 * values[6]; 
+                        }
+                        if(values[7]=='cars' || values[7]=='busses' || values[7]=='twoWheelers')
+                            valueArray.push({location: [lat,long], name: values[7], count: Math.round(values[6]), emission: emission});
+                        else
+                            valueArray.push({location: [lat,long], name: values[7], count: Math.round(values[6], 2), emission: emission});
                     }
                 });
                 console.log(valueArray);
                 setInfluxData(valueArray);
             });
         }, [])
-        
-        //console.log(valueArray);
-        
-        //Sortiert die Werte damit der aktuellste Wert oben ist:
-        /*for (let i = 0; i < valueArray.length; i++) {
-            for (let j = 0; j < valueArray.length; j++) {
-                if (valueArray[i].time > valueArray[j].time) {
-                    let tempValue = valueArray[i];
-                    valueArray[i] = valueArray[j];
-                    valueArray[j] = tempValue;
-                }
-                else if (valueArray[i].time == valueArray[j].time && valueArray[i].name > valueArray[j].name) {
-                    let tempValue = valueArray[i];
-                    valueArray[i] = valueArray[j];
-                    valueArray[j] = tempValue;
-                }
-            }
-        }*/
-
-        //setVehicleData(valueArray);
-        //return {car: valueArray[0], bus: valueArray[1], bike: valueArray[2], location: valueArray[0].location}; 
-        
-        
+                
         return (            
             <Marker position={influxData[0].location} icon={props.DefaultIcon}>
                 <Popup>
@@ -75,8 +63,10 @@ export default function InfluxMarker(props) {
                     <p>Autos: {influxData[1].count}<br></br>
                        Busse: {influxData[0].count}<br></br>
                        Zweiräder: {influxData[4].count}<br></br>
-                       Temperatur: {influxData[3].count}<br></br>
-                       Luftfeuchtigkeit: {influxData[2].count}</p>
+                       Temperatur: {influxData[3].count}°<br></br>
+                       Luftfeuchtigkeit: {influxData[2].count}<br></br>
+                       Auto Emissionen: {influxData[1].emission} g/km<br></br>
+                       Bus Emissionen: {influxData[0].emission} g/km</p>
                 </Popup>
             </Marker>
         ); 

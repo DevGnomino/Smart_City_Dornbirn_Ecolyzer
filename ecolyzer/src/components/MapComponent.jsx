@@ -13,13 +13,25 @@ import InfluxMarker from './../InfluxTest';
 
 export default function MapComponent() {
     const [icon, setIcon] = useState(red);
-    //const [vehicleData, setVehicleData] = useState("Vehicle data not defined");
 
     const dornbirnCenter = [47.421169, 9.747031]; //47.421169, 9.747031
 
-    useEffect(() => {    // Update the document title using the browser API    
-        //GetInfluxData(setVehicleData);  
-    }, []); 
+    const IconChange = (intensity) => {
+        if(0<=intensity && intensity<0.15)
+        {
+            setIcon(green);
+        }else if(0.15<=intensity && intensity<0.3){
+            setIcon(yellow_green);
+        }else if(0.3<=intensity && intensity<0.45){
+            setIcon(yellow);
+        }else if(0.45<=intensity && intensity<0.6){
+            setIcon(light_orange);
+        }else if(0.6<=intensity && intensity<0.8){
+            setIcon(dark_orange);
+        }else if(0.8<=intensity && intensity<=1){
+            setIcon(red);
+        }  
+    }
 
     const DefaultIcon = L.icon({
         iconUrl: icon,

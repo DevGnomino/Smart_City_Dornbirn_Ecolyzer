@@ -16,10 +16,17 @@ const url = "http://10.115.3.38:8086";
 const query = 'from(bucket: "' + bucket + '") |> range(start: -12h) |> tail(n: 30) |> movingAverage(n: 30)'; //5min
 
 export default function InfluxMarker(props) {
-    const [influxData, setInfluxData] = useState([{location:[47.421169, 9.747031]}])
+    const [influxData, setInfluxData] = useState([
+        { location: [47.421169, 9.747031], name: "busses", count: 0, emission: 0 },
+        { location: [47.421169, 9.747031], name: "cars", count: 3, emission: 545 },
+        { location: [47.421169, 9.747031], name: "humidity", count: 34.4, emission: 0 },
+        { location: [47.421169, 9.747031], name: "temperature", count: 32.7, emission: 0 },
+        { location: [47.421169, 9.747031], name: "twoWheelers", count: 0, emission: 0 }
+    ]);
+
 
     try {
-        useEffect(() => {  
+        /*useEffect(() => {  
             console.log("Get Data Function called!");
 
             const queryApi = new InfluxDB({url: url, token: token}).getQueryApi(org);
@@ -54,7 +61,7 @@ export default function InfluxMarker(props) {
                 console.log(valueArray);
                 setInfluxData(valueArray);
             });
-        }, [])
+        }, [])*/
                 
         return (            
             <Marker position={influxData[0].location} icon={props.DefaultIcon}>
@@ -65,8 +72,8 @@ export default function InfluxMarker(props) {
                        Zweiräder: {influxData[4].count}<br></br>
                        Temperatur: {influxData[3].count}°<br></br>
                        Luftfeuchtigkeit: {influxData[2].count}<br></br>
-                       Auto Emissionen: {influxData[1].emission} g/km<br></br>
-                       Bus Emissionen: {influxData[0].emission} g/km</p>
+                       Auto Emissionen: {influxData[1].emission} g<br></br>
+                       Bus Emissionen: {influxData[0].emission} g</p>
                 </Popup>
             </Marker>
         ); 
